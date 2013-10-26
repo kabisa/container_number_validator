@@ -45,14 +45,10 @@ module ContainerNumberValidator
 
   def calculate_checksum(container_no)
     chars = container_no.chars
-    digits = Array.new
-    weights = Array.new
+    digits, weights = [], []
 
-    chars[0..3].each do |char|
-      digits << LETTERS[char.upcase]
-    end
-
-    chars[4..10].each { |c| digits << c }
+    chars[0..3].each  { |char| digits << LETTERS[char.upcase] }
+    chars[4..10].each { |char| digits << char }
 
     digits.each_with_index do |digit, i|
       weights[i] = digit.to_i * WEIGHTS[i].to_i
