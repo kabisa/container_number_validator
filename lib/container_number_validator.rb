@@ -31,7 +31,7 @@ module ContainerNumberValidator
 
   WEIGHTS = %w{1 2 4 8 16 32 64 128 256 512}.freeze
 
-  def validate container_no
+  def validate(container_no)
     return false unless container_no.is_a?(String)
     return false if container_no.empty?
     return false unless container_no =~ /^[a-zA-Z]{4}\d{6}\-?\d$/
@@ -43,7 +43,7 @@ module ContainerNumberValidator
 
   private
 
-  def calculate_checksum container_no
+  def calculate_checksum(container_no)
     chars = container_no.chars
     digits = Array.new
     weights = Array.new
