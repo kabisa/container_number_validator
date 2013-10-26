@@ -34,8 +34,10 @@ module ContainerNumberValidator
   def validate(container_no)
     return false unless container_no.to_s =~ /^[a-zA-Z]{4}\d{6}\-?\d$/
 
-    checksum = container_no[-1, 1]
-    checksum.to_i == ContainerNumberValidator.calculate_checksum(container_no[0..9])
+    checksum = container_no[-1, 1].to_i
+    number   = container_no[0..-1]
+
+    calculate_checksum(number) == checksum
   end
   module_function :validate
 
