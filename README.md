@@ -1,4 +1,4 @@
-# License Plate Validator
+# Container Number Validator
 
 This gem allows you to easily validate container number fields to be valid
 container numbers.
