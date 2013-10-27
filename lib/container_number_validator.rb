@@ -31,28 +31,24 @@ module ContainerNumberValidator
 
   WEIGHTS = %w{1 2 4 8 16 32 64 128 256 512}.freeze
 
-  def validate container_no
-    return false unless container_no.is_a?(String)
-    return false if container_no.empty?
-    return false unless container_no =~ /^[a-zA-Z]{4}\d{6}\-?\d$/
+  def validate(container_no)
+    return false unless container_no.to_s =~ /^[a-zA-Z]{4}\d{6}\-?\d$/
 
-    checksum = container_no[-1, 1]
-    checksum.to_i == ContainerNumberValidator.calculate_checksum(container_no[0..9])
+    checksum = container_no[-1, 1].to_i
+    number   = container_no[0..-1]
+
+    calculate_checksum(number) == checksum
   end
   module_function :validate
 
   private
 
-  def calculate_checksum container_no
+  def calculate_checksum(container_no)
     chars = container_no.chars
-    digits = Array.new
-    weights = Array.new
+    digits, weights = [], []
 
-    chars[0..3].each do |char|
-      digits << LETTERS[char.upcase]
-    end
-
-    chars[4..10].each { |c| digits << c }
+    chars[0..3].each  { |char| digits << LETTERS[char.upcase] }
+    chars[4..10].each { |char| digits << char }
 
     digits.each_with_index do |digit, i|
       weights[i] = digit.to_i * WEIGHTS[i].to_i
