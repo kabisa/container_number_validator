@@ -3,11 +3,11 @@ require 'spec_helper'
 describe ContainerNumberValidator do
 
   context 'fails on nil and empty values' do
-    it "with nil" do
+    it 'with nil' do
       expect(subject.validate(nil)).to be_false
     end
 
-    it "with empty string" do
+    it 'with empty string' do
       expect(subject.validate('')).to be_false
     end
   end
@@ -28,7 +28,7 @@ describe ContainerNumberValidator do
     end
   end
 
-  context "passes on valid owner code and category identifier" do
+  context 'passes on valid owner code and category identifier' do
     %w{MOFU587008-7 DRYU413526-5 NYKU644101-8 KKFU137865-2 NYKU561651-2 KKFU760143-9 TCLU250850-8}.each do |value|
       it "with #{value}" do
         expect(subject.validate(value)).to be_true
