@@ -1,5 +1,7 @@
 # Container Number Validator
 
+[![Gem Version](https://badge.fury.io/rb/container_number_validator.png)](http://badge.fury.io/rb/container_number_validator)
+
 This gem allows you to easily validate container number fields to be valid
 container numbers.
 
