@@ -54,7 +54,10 @@ module ContainerNumberValidator
       weights[i] = digit.to_i * WEIGHTS[i].to_i
     end
 
-    weights.reduce(:+) % 11
+    checksum = weights.reduce(:+) % 11
+
+    # When checksum equals 10 the last digit will equal 0
+    checksum == 10 ? 0 : checksum
   end
   module_function :calculate_checksum
 
