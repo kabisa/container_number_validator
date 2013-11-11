@@ -52,4 +52,12 @@ describe ContainerNumberValidator do
     end
   end
 
+  context 'Comprehensive test with real life examples' do
+    IO.readlines('./spec/fixtures/container_numbers.txt').each do |value|
+      it "passes with #{value}" do
+        value.strip!
+        expect(subject.validate(value)).to be_true
+      end
+    end
+  end
 end
