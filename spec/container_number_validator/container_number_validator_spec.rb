@@ -43,4 +43,13 @@ describe ContainerNumberValidator do
       end
     end
   end
+
+  context 'passes on numbers with checksum of 10' do
+    %w{ZIMU1380440 fciu8384900}.each do |value|
+      it "with #{value }" do
+        expect(subject.validate('ZIMU1380440')).to be_true
+      end
+    end
+  end
+
 end
