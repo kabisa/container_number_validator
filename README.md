@@ -1,5 +1,6 @@
 # Container Number Validator
 
+[![Build Status](https://travis-ci.org/kabisaict/container_number_validator.png)](https://travis-ci.org/kabisaict/container_number_validator)
 [![Gem Version](https://badge.fury.io/rb/container_number_validator.png)](http://badge.fury.io/rb/container_number_validator)
 
 This gem allows you to easily validate container number fields to be valid
@@ -52,7 +53,7 @@ ActiveRecord models:
 
 ### Wishlist
 
- Nothing specific in mind yet ;-)
+ - Make 10 checksum result configurable
 
 If you're unsure what to contribute, contact me. :-)
 
